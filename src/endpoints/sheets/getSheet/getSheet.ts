@@ -1,8 +1,8 @@
 import {Request, Response} from 'express'
 import fs from 'fs'
-import savedSheets from '../../../data/sheets.json'
-import { CallOfCthulhuInvestigator } from '../../models/characterSheets/CallOfCthulhuInvestigator.js'
-import { COCInvestigatorsDataModel } from '../../models/data/COCInvestigatorsDataModel.js'
+import savedSheets from '../../../../data/sheets.json'
+import { CallOfCthulhuInvestigator } from '../../../models/characterSheets/CallOfCthulhuInvestigator.js'
+import { COCInvestigatorsDataModel } from '../../../models/data/COCInvestigatorsDataModel.js'
 
 export const getSheetEndpoint = (req: Request, res: Response) => {
   const sheetId = req.query.id
@@ -14,7 +14,8 @@ export const getSheetEndpoint = (req: Request, res: Response) => {
     //deu bom, retornar sheet
     res.send(sheet)
   } else {
-    res.send('Não tem esse id no banco otário')
+    res.status(404)
+    res.send(`Sheet of id ${sheetId} not found for this user`)
   }
   //salvar
   

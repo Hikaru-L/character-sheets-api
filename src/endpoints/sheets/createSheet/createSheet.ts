@@ -1,8 +1,8 @@
 import {Request, Response} from 'express'
 import fs from 'fs'
-import savedSheets from '../../../data/sheets.json'
-import { COCInvestigatorsDataModel } from '../../models/data/COCInvestigatorsDataModel.js'
-import { CallOfCthulhuInvestigator } from '../../models/characterSheets/CallOfCthulhuInvestigator.js'
+import savedSheets from '../../../../data/sheets.json'
+import { COCInvestigatorsDataModel } from '../../../models/data/COCInvestigatorsDataModel.js'
+import { CallOfCthulhuInvestigator } from '../../../models/characterSheets/CallOfCthulhuInvestigator.js'
 
 export const createSheetEndpoint = (req: Request, res: Response) => {
 

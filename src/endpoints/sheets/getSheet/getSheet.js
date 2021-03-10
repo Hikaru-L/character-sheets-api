@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSheetEndpoint = void 0;
-var sheets_json_1 = __importDefault(require("../../../data/sheets.json"));
+var sheets_json_1 = __importDefault(require("../../../../data/sheets.json"));
 var getSheetEndpoint = function (req, res) {
     var sheetId = req.query.id;
     var sheets = sheets_json_1.default.sheets;
@@ -16,7 +16,8 @@ var getSheetEndpoint = function (req, res) {
         res.send(sheet);
     }
     else {
-        res.send('Não tem esse id no banco otário');
+        res.status(404);
+        res.send("Sheet of id " + sheetId + " not found for this user");
     }
     //salvar
 };
