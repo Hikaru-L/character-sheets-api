@@ -1,13 +1,13 @@
 import express from "express";
-import { createSheetEndpoint } from "../src/endpoints/sheets/createSheet/createSheet";
+import { createSheetEndpoint } from "../functions/src/endpoints/sheets/createSheet/createSheet";
 import bodyParser from "body-parser";
 import cors from "cors";
-import { getSheetEndpoint } from "../src/endpoints/sheets/getSheet/getSheet";
-import { editSheetEndpoint } from "../src/endpoints/sheets/editSheet/editSheet";
+import { getSheetEndpoint } from "../functions/src/endpoints/sheets/getSheet/getSheet";
+import { editSheetEndpoint } from "../functions/src/endpoints/sheets/editSheet/editSheet";
 import admin, { ServiceAccount } from "firebase-admin";
 import serviceAccount from "../firebase-admin-sdk.json";
 import {config} from 'dotenv'
-import { authSignupEndpoint } from "../src/endpoints/user/signup/authSignup";
+import { authSignupEndpoint } from "../functions/src/endpoints/user/signup/authSignup";
 
 //express instance
 const app: express.Application = express();
