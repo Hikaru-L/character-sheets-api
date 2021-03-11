@@ -5,15 +5,15 @@ import cors from "cors";
 import { getSheetEndpoint } from "../functions/src/endpoints/sheets/getSheet/getSheet";
 import { editSheetEndpoint } from "../functions/src/endpoints/sheets/editSheet/editSheet";
 import admin, { ServiceAccount } from "firebase-admin";
-import serviceAccount from "../firebase-admin-sdk.json";
-import {config} from 'dotenv'
+import serviceAccount from "../functions/firebase-admin-sdk.json";
+import { config } from "dotenv";
 import { authSignupEndpoint } from "../functions/src/endpoints/user/signup/authSignup";
 
 //express instance
 const app: express.Application = express();
 
 //load environment variables
-config()
+config();
 
 // firebase
 admin.initializeApp({
@@ -46,7 +46,7 @@ app.get("/cthulhu/sheet/get", cors(), getSheetEndpoint);
 app.put("/cthulhu/sheet/edit", cors(), editSheetEndpoint);
 
 //auth endpoints
-app.post('/auth/signup', cors(), authSignupEndpoint)
+app.post("/auth/signup", cors(), authSignupEndpoint);
 
 //escolher aqui qual porta usar
 app.listen(3001, () => {
