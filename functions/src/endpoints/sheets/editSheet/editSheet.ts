@@ -4,7 +4,7 @@ import savedSheets from '../../../../data/sheets.json'
 import { COCInvestigatorsDataModel } from '../../../models/data/COCInvestigatorsDataModel.js'
 import { CallOfCthulhuInvestigator } from '../../../models/characterSheets/CallOfCthulhuInvestigator.js'
 
-export const editSheetEndpoint = (req: Request, res: Response) => {
+export const editSheetEndpoint = async (req: Request, res: Response) => {
 
   console.log('request body: ', req.body)
 

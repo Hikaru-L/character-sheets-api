@@ -4,8 +4,8 @@
     "description": "service for saving created sheets and sessions",
     "main": "index.js",
     "scripts": {
-        "test": "firebase serve --only functions",
-        "tsc": "tsc",
+        "test": "yarn build && firebase serve --only functions",
+        "build": "tsc",
         "start": "yarn run tsc && node server/server.js",
         "deploy": "cd functions && yarn build && cd ..  && firebase deploy --only functions"
     },

@@ -8,6 +8,7 @@ import { authSignupEndpoint } from "./endpoints/user/signup/authSignup";
 import serviceAccount from "../firebase-admin-sdk.json";
 import admin from "firebase-admin";
 import bodyParser from "body-parser";
+import { authLoginEndpoint } from "./endpoints/user/login/authLogin";
 
 const app = express();
 
@@ -42,5 +43,6 @@ app.put("/cthulhu/sheet/edit", cors(), editSheetEndpoint);
 
 //auth endpoints
 app.post("/auth/signup", cors(), authSignupEndpoint);
+app.post("/auth/login", cors(), authLoginEndpoint);
 
 exports.app = functions.https.onRequest(app);

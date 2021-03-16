@@ -1,11 +1,13 @@
 import { DicePool, Dice } from "../dice/Dice"
 
 export class CallOfCthulhuInvestigator {
+  id: string
   info: InvestigatorBaseInfo
   stats: InvestigatorStats
   skills: InvestigatorSkills
 
   constructor() {
+    this.id = Date.now().toString()
     this.info = {
       name: '',
       occupation: '',
