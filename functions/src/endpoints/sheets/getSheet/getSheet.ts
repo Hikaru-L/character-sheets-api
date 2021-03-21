@@ -15,7 +15,7 @@ export const getSheetEndpoint = async (req: Request, res: Response) => {
     res.send('User not found, please login')
     return
   }
-  const sheetIndex = user?.COCInvestigatorIds.indexOf(sheetId)
+  const sheetIndex = user?.COCInvestigatorIds.findIndex((userSheet) => userSheet.id === sheetId)
   if(sheetIndex !== undefined && sheetIndex > -1) {
     //deu bom, retornar sheet
     const database = firestore();
