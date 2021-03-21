@@ -11,6 +11,12 @@ export const authSignupEndpoint = async (req: Request, res: Response) => {
 
   const database = firestore();
   const userDocumentRef = database.collection("users").doc(username);
+  const user = await userDocumentRef.get()
+  if(user.exists) {
+    res.status(409)
+    res.send('Error: username already selected')
+    return
+  }
   //TODO set time
   const userToken = generateUserToken(username, "1000000000");
 
