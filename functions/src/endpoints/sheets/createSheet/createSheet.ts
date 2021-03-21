@@ -4,7 +4,6 @@ import { getUserFromToken } from '../../../utils/getUserFromToken/getUserFromTok
 import { firestore } from 'firebase-admin'
 
 export const createSheetEndpoint = async (req: Request, res: Response) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
   const auth = req.headers.token as string
   const user = await getUserFromToken(auth)
   if(!user) {
